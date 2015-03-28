@@ -9,7 +9,7 @@ var fsm = new machina.Fsm({
 
     pifmPid: null,
 
-    startBroadcast: function(waveFile) {
+    startBroadcast: function(waveFile, freq) {
 
         var self = this;
 
@@ -18,7 +18,7 @@ var fsm = new machina.Fsm({
             if (self.state !== "broadcasting") {
 
                 new Promise(function(resolve, reject){
-                    var myProcess = spawn("node_modules/PiFmRds/src/pi_fm_rds", ["-audio", "node_modules/PiFmRds/src/sound.wav"]);
+                    var myProcess = spawn("node_modules/PiFmRds/src/pi_fm_rds", ["-audio", waveFile, "-freq", freq]);
                     console.log("nodeprocess :", myProcess.pid, "myProcess: ", process.pid);
 
                     myProcess.stdout.on("data", function(chunkBuffer){
