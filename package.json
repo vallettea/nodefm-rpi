@@ -1,0 +1,14 @@
+{
+  "name": "nodefm",
+  "version": "0.0.1",
+  "description": "A wraper around PiFM rds",
+  "main": "index.js",
+  "scripts": {
+    "install": "napa christopheJacquet/PiFmRds && cd node_modules/PiFmRds/src && make"
+  },
+  "author": "Alexandre Vallette",
+  "license": "MIT",
+  "devDependencies": {
+    "napa": "^1.2.0"
+  }
+}
