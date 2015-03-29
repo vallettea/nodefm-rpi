@@ -1,5 +1,5 @@
 {
-  "name": "nodefm",
+  "name": "nodefm-rpi",
   "version": "0.0.1",
   "description": "A wraper around PiFM rds",
   "main": "index.js",

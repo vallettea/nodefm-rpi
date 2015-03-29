@@ -1,4 +1,4 @@
-## nodeFm
+## nodefm-rpi
 
 This is simple wrapper around [PiFm RDS](https://github.com/ChristopheJacquet/PiFmRds).
 
@@ -27,12 +27,18 @@ sudo make install
 sudo adduser pi gpio
 ```
 
+then you can use:
+
+```
+npm install nodefm-rpi
+```
+
 ### Usage
 
 ```
 var fs = require('fs');
 
-var radio = require('./index.js');
+var radio = require('nodefm-rpi');
 
 var emitter = new radio("89.5");
 var radioStream = emitter.start();
