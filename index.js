@@ -4,6 +4,14 @@ var machina = require('machina');
 var spawn = require('child_process').spawn;
 var kill = require('tree-kill');
 var Promise = require('es6-promise').Promise;
+var gpio = require('rpi-gpio');
+
+function write() {
+    gpio.write(7, false, function(err) {
+        if (err) throw err;
+        console.log('Liberating the carrier.');
+    });
+}
 
 var fsm = new machina.Fsm({
 
@@ -18,17 +26,19 @@ var fsm = new machina.Fsm({
             if (self.state !== "broadcasting") {
 
                 new Promise(function(resolve, reject){
-                    var myProcess = spawn("node_modules/PiFmRds/src/pi_fm_rds", ["-audio", waveFile, "-freq", freq]);
+                    var myProcess = spawn(
+                        "node_modules/PiFmRds/src/pi_fm_rds", 
+                        ["-audio", waveFile, "-freq", freq]
+                    );
                     console.log("nodeprocess :", myProcess.pid, "myProcess: ", process.pid);
 
                     myProcess.stdout.on("data", function(chunkBuffer){
                         var message = chunkBuffer.toString();
-                        console.log(" out => " + message);
+                        console.log(" out:data => " + message);
+                        resolve(myProcess.pid);
                     });
-                    myProcess.stderr.on("data", function(chunkBuffer){
-                        var message = chunkBuffer.toString();
-                        console.log(" err => " + message);
-                    });              
+
+                    resolve(myProcess.pid);             
                 })
                 .then(function(pid){
                     self.pifmPid = pid;
@@ -37,7 +47,7 @@ var fsm = new machina.Fsm({
                 })
                 .catch(function(err){
                     console.log(err.msg);
-                    console.log("Could not bra-oadcast. Cleanning...");
+                    console.log("Could not broadcast. Cleanning...");
                     self.cleanConnexion(err.pid)
                     reject("FAILURE " + err.msg);
                 });
@@ -59,12 +69,15 @@ var fsm = new machina.Fsm({
             console.log("Cleaning pid ", pid);
             if (pid > 0){
                 kill(pid, 'SIGKILL');
+                gpio.setup(7, gpio.DIR_OUT, write);
                 self.transition( "stopped" );
                 resolve("SUCCESS");
             } else {
                 console.log("could not kill signal whose pid is not an integer");
                 reject("FAILURE");
             };
+        }).then(function(result){
+            console.log(result);
         });
     },
 

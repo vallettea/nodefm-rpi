@@ -10,5 +10,11 @@
   "license": "MIT",
   "devDependencies": {
     "napa": "^1.2.0"
+  },
+  "dependencies": {
+    "es6-promise": "^2.0.1",
+    "machina": "^1.0.0",
+    "rpi-gpio": "^0.5.1",
+    "tree-kill": "0.0.6"
   }
 }

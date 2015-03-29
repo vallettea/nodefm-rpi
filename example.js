@@ -1,10 +1,12 @@
 "use strict";
 
 
-var fsm = require('./fsm.js');
+var emitter = require('./index.js');
 
-fsm.startBroadcast("node_modules/PiFmRds/src/sound.wav", "89.7");
+emitter.startBroadcast("Radio_Tondu_2.wav", "89.7");
 
 setTimeout(function(){
-    fsm.stopBroadcast();
-}, 10000);
+    emitter.stopBroadcast();
+}, 5000);
+
+ 
