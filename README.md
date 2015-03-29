@@ -45,3 +45,9 @@ setTimeout(function(){
 }, 2000);
 
 ```
+
+## Disclaimer
+
+Never use this program to transmit VHF-FM data through an antenna, as it is illegal in most countries. This code is for experimental purposes only. Always connect a shielded transmission line from the RaspberryPi directly to a radio receiver, so as not to emit radio waves.
+
+I could not be held liable for any misuse of your own Raspberry Pi. Any experiment is made under your own responsibility.
