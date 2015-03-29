@@ -12,7 +12,7 @@
     "napa": "^1.2.0"
   },
   "dependencies": {
-    "rpi-gpio": "^0.5.1",
+    "pi-gpio": "^0.5.1",
     "tree-kill": "0.0.6"
   }
 }
