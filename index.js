@@ -3,6 +3,7 @@
 var spawn = require('child_process').spawn;
 var kill = require('tree-kill');
 var gpio = require("pi-gpio");
+var path = require('path');
 
 var method = Emitter.prototype;
 
@@ -15,8 +16,9 @@ function Emitter(freq) {
 }
 
 method.start = function() {
+    var cPath = path.join(__dirname, "node_modules" ,"PiFmRds", "src", "pi_fm_rds");
     var myProcess = spawn(
-        "node_modules/PiFmRds/src/pi_fm_rds", 
+        cPath, 
         ["-freq", this.freq, "-audio", "-"],
         { stdio: ['pipe', 1, 2, 'ipc'] }
     );
