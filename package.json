@@ -1,6 +1,6 @@
 {
   "name": "nodefm-rpi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A wraper around PiFM rds",
   "main": "index.js",
   "scripts": {
@@ -8,10 +8,8 @@
   },
   "author": "Alexandre Vallette",
   "license": "MIT",
-  "devDependencies": {
-    "napa": "^1.2.0"
-  },
   "dependencies": {
+    "napa": "^1.2.0",
     "pi-gpio": "0.0.6",
     "tree-kill": "0.0.6"
   }
