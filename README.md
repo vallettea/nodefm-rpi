@@ -1,6 +1,6 @@
 ## nodefm-rpi
 
-This is simple wrapper around [PiFm RDS](https://github.com/ChristopheJacquet/PiFmRds).
+This is simple wrapper around [PiFm RDS](https://github.com/Hatagashira/PiFmRds).
 
 ### Install
 
@@ -15,16 +15,6 @@ Install libsnd:
 
 ``` 
 sudo apt-get install libsndfile1-dev
-```
-
-Install gpio admin and add suer `pi` to gpio group:
-
-```
-git clone git://github.com/quick2wire/quick2wire-gpio-admin.git
-cd quick2wire-gpio-admin
-make
-sudo make install
-sudo adduser pi gpio
 ```
 
 then you can use:

@@ -1,16 +1,15 @@
 {
   "name": "nodefm-rpi",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A wraper around PiFM rds",
   "main": "index.js",
   "scripts": {
-    "install": "napa christopheJacquet/PiFmRds && cd node_modules/PiFmRds/src && make"
+    "install": "napa Hatagashira/PiFmRds && cd node_modules/PiFmRds/src && make"
   },
   "author": "Alexandre Vallette",
   "license": "MIT",
   "dependencies": {
     "napa": "^1.2.0",
-    "pi-gpio": "0.0.6",
     "tree-kill": "0.0.6"
   }
 }
