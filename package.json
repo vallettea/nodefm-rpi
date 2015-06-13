@@ -1,6 +1,6 @@
 {
   "name": "nodefm-rpi",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A wraper around PiFM rds",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "napa": "^1.2.0",
+    "rpi-gpio": "^0.5.2",
     "tree-kill": "0.0.6"
   }
 }
